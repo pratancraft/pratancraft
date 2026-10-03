@@ -632,51 +632,166 @@ img {
     }
 }
 /* =========================================
-   MOBILE HEADER / LOGO FIX
+   MOBILE FIX - PRATAN CRAFT
    ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
 
-    /* Header */
-    header {
-        height: 70px;
+    /* NAVBAR */
+    .navbar {
+        width: 100%;
+    }
+
+    .nav-inner {
+        min-height: 62px;
+        padding: 0 14px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+        border-radius: 7px;
+    }
+
+    .brand-name {
+        font-size: 14px !important;
+        letter-spacing: 2px;
+    }
+
+    .brand-name small {
+        font-size: 7px;
+        letter-spacing: 3px;
+    }
+
+    .nav-contact {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+
+    /* =====================================
+       HERO - PRATAN JANGAN TERLALU BESAR
+       ===================================== */
+
+    .hero {
+        min-height: auto;
+        padding: 55px 0 65px;
+    }
+
+    .hero-content {
+        width: 100%;
         padding: 0 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
-    /* Logo */
-    header .logo,
-    header .logo img,
-    .navbar-brand img,
-    .brand-logo,
-    .site-logo {
-        width: 120px !important;
-        max-width: 120px !important;
-        height: auto !important;
-        max-height: 45px !important;
-        object-fit: contain;
+    .hero h1 {
+        font-size: 48px !important;
+        line-height: .95;
+        letter-spacing: 3px;
+        white-space: nowrap;
     }
 
-    /* Kalau logo berupa text */
-    header .logo {
-        font-size: 24px !important;
-        line-height: 1;
+    .hero-subtitle {
+        font-size: 13px;
+        letter-spacing: 7px;
+        margin-top: 14px;
     }
 
-    /* Header ketika scroll */
-    header.scrolled {
-        height: 58px;
+    .hero-line {
+        width: 70px;
+        margin: 22px auto;
     }
 
-    header.scrolled .logo img,
-    header.scrolled .navbar-brand img,
-    header.scrolled .brand-logo,
-    header.scrolled .site-logo {
-        width: 95px !important;
-        max-width: 95px !important;
-        max-height: 38px !important;
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.8;
+        padding: 0 5px;
+    }
+
+
+    /* =====================================
+       ABOUT IMAGE
+       ===================================== */
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about > img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 330px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+    }
+
+    .about-visual {
+        min-height: 260px;
+    }
+
+    .about-logo {
+        font-size: 65px;
+    }
+
+
+    /* =====================================
+       BUTTON HERO
+       ===================================== */
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 330px;
+        padding: 14px 20px;
+    }
+
+
+    /* =====================================
+       SOCIAL
+       ===================================== */
+
+    .social-list {
+        padding: 0 10px;
+    }
+
+    .social-link {
+        min-width: 100px;
+        padding: 10px 11px;
+        font-size: 11px;
     }
 }
 
+
+/* HP KECIL */
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 42px !important;
+        letter-spacing: 2px;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        letter-spacing: 6px;
+    }
+
+    .brand-name {
+        font-size: 13px !important;
+    }
+
+    .nav-contact {
+        font-size: 9px;
+        padding: 7px 10px;
+    }
+}
