@@ -478,3 +478,157 @@
   margin-top: 35px;
 
 }
+/* =========================================
+   RESPONSIVE MOBILE
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+    .container,
+    section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Semua gambar agar tidak melebihi layar */
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Logo */
+    .logo img,
+    .hero-logo,
+    .about-logo {
+        width: 75%;
+        max-width: 320px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* Heading */
+    h1 {
+        font-size: 36px;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+
+/* HP */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 40px 18px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    /* Logo supaya tidak GABAN */
+    .logo img,
+    .hero-logo,
+    .about-logo {
+        width: 70%;
+        max-width: 260px;
+        height: auto;
+    }
+
+    /* Gambar besar */
+    .image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Navigation */
+    nav {
+        padding: 12px 18px;
+    }
+
+    nav img {
+        max-width: 120px;
+    }
+
+    /* Tombol */
+    button,
+    .btn,
+    a.btn {
+        font-size: 13px;
+        padding: 11px 18px;
+    }
+
+    /* Social media */
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .social-links a {
+        font-size: 12px;
+        padding: 9px 14px;
+    }
+}
+
