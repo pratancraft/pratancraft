@@ -106,92 +106,51 @@
 
 /* Tampilan HP */
 @media (max-width: 650px) {
-  #about .about {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-  }
+  /* =====================================
+   ABOUT - MOBILE
+   ===================================== */
 
-  #about .about-visual {
-    width: 100% !important;
-    max-width: 520px !important;
-    aspect-ratio: 852 / 617 !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-}
 .about {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
-
-    display: flex;
-    align-items: center;
-    gap: 70px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
 }
 
-/* BAGIAN FOTO */
+/* FOTO LOGO PRATAN */
 .about > img {
-    width: 55%;
-    max-width: 550px;
-    height: auto;
+    display: block;
+    width: 75% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    max-height: 300px !important;
     object-fit: contain;
-    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
-/* BAGIAN TEKS */
-.about-content {
-    width: 45%;
-    text-align: left;
+/* TEKS VISI MISI */
+.about-text {
+    width: 100%;
+    text-align: center;
 }
 
-.about-content span {
-    display: block;
-    font-size: 13px;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-    color: #555;
+.about-text .section-label {
+    text-align: center;
 }
 
-.about-content h1 {
-    margin: 0 0 8px;
-    font-size: 42px;
-    font-weight: 700;
+.about-text h2 {
+    text-align: center;
 }
 
-.about-content h3 {
-    margin: 0 0 25px;
-    font-size: 16px;
+.about-text p {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-.about-content p {
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.about-content ul {
-    padding-left: 20px;
-    line-height: 1.7;
-}
-
-.about-buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.about-buttons a {
+.about-tag {
     display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #fff;
-    background: #111;
-}
-
-.about-buttons a:last-child {
-    color: #111;
-    background: transparent;
-    border: 1px solid #111;
+    text-align: center;
 }
 /* =========================================
    ABOUT / VISI MISI
