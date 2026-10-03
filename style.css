@@ -754,3 +754,76 @@ img {
         padding: 7px 10px;
     }
 }
+/* =====================================================
+   FIX LOGO / IMAGE MOBILE
+   ===================================================== */
+
+@media screen and (max-width: 650px) {
+
+    /* Container bagian About */
+    .about {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* FOTO PRATAN */
+    .about img[src*="pratan.jpg"] {
+        display: block !important;
+
+        /* INI YANG MEMBUAT LOGO JADI KECIL */
+        width: 320px !important;
+        max-width: 80vw !important;
+
+        height: 320px !important;
+        max-height: 320px !important;
+
+        margin: 0 auto 25px auto !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* BLOK VISI MISI */
+    .about-text {
+        width: 100% !important;
+        max-width: 500px !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+
+    .about-text .section-label {
+        text-align: center !important;
+    }
+
+    .about-text h2 {
+        text-align: center !important;
+    }
+
+    .about-text p {
+        text-align: center !important;
+    }
+}
+
+
+/* HP LEBIH KECIL */
+@media screen and (max-width: 400px) {
+
+    .about img[src*="pratan.jpg"] {
+        width: 270px !important;
+        max-width: 75vw !important;
+
+        height: 270px !important;
+        max-height: 270px !important;
+    }
+
+    .about {
+        padding: 0 15px !important;
+    }
+}
