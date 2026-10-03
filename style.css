@@ -1,5 +1,6 @@
 /* =========================================================
-   PRATAN CRAFT - CLEAN RESPONSIVE CSS
+   PRATAN CRAFT
+   CLEAN FULL CSS
    ========================================================= */
 
 :root {
@@ -32,7 +33,7 @@ body {
     padding: 0;
     background: var(--bg);
     color: var(--white);
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
 }
 
@@ -52,7 +53,8 @@ button {
 
 .container {
     width: min(1160px, calc(100% - 40px));
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* =========================================================
@@ -84,7 +86,9 @@ body::before {
     position: fixed;
     inset: 0;
     z-index: -1;
-    opacity: .10;
+
+    opacity: .08;
+
     pointer-events: none;
 
     background-image:
@@ -102,8 +106,10 @@ body::before {
 
     width: 100%;
 
-    background: rgba(8,10,13,.92);
+    background: rgba(8,10,13,.94);
+
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     border-bottom: 1px solid rgba(255,255,255,.07);
 }
@@ -128,15 +134,15 @@ body::before {
     width: 43px;
     height: 43px;
 
-    border: 1px solid var(--gold);
-    border-radius: 9px;
-
     display: grid;
     place-items: center;
 
+    border: 1px solid var(--gold);
+    border-radius: 9px;
+
     color: var(--gold);
 
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 25px;
     font-weight: 700;
 
@@ -148,9 +154,11 @@ body::before {
 }
 
 .brand-name {
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
+
     font-size: 18px;
     font-weight: 700;
+
     letter-spacing: 3px;
 }
 
@@ -163,6 +171,7 @@ body::before {
 
     font-size: 9px;
     font-weight: 400;
+
     letter-spacing: 5px;
 }
 
@@ -180,7 +189,7 @@ body::before {
 }
 
 .nav-links a {
-    transition: .3s ease;
+    transition: color .25s ease;
 }
 
 .nav-links a:hover {
@@ -197,7 +206,9 @@ body::before {
 
     font-size: 12px;
 
-    transition: .3s ease;
+    transition:
+        background .25s ease,
+        color .25s ease;
 }
 
 .nav-contact:hover {
@@ -223,12 +234,14 @@ body::before {
 .hero-content {
     width: 100%;
     max-width: 850px;
+
     margin: auto;
 }
 
 .eyebrow {
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
 
     padding: 9px 17px;
@@ -256,16 +269,20 @@ body::before {
     border-radius: 50%;
 
     background: var(--gold);
-    box-shadow: 0 0 12px var(--gold);
+
+    box-shadow:
+        0 0 12px var(--gold);
 }
 
 .hero h1 {
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: clamp(54px, 10vw, 112px);
+
     line-height: .95;
 
     letter-spacing: 5px;
+
     font-weight: 800;
 
     background:
@@ -290,6 +307,7 @@ body::before {
     font-size: clamp(14px, 2vw, 19px);
 
     letter-spacing: 11px;
+
     font-weight: 500;
 }
 
@@ -300,22 +318,27 @@ body::before {
     margin: 29px auto;
 
     background: var(--gold);
-    box-shadow: 0 0 15px var(--gold);
+
+    box-shadow:
+        0 0 15px var(--gold);
 }
 
 .hero-description {
     max-width: 580px;
+
     margin: auto;
 
     color: var(--muted);
 
     font-size: 15px;
+
     line-height: 1.9;
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
+
     flex-wrap: wrap;
 
     gap: 13px;
@@ -393,12 +416,15 @@ body::before {
     color: #8f9298;
 
     font-size: 10px;
+
     letter-spacing: 4px;
+
     text-transform: uppercase;
 }
 
 .social-list {
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -411,6 +437,7 @@ body::before {
     min-width: 120px;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -419,6 +446,7 @@ body::before {
     padding: 12px 17px;
 
     border: 1px solid rgba(255,255,255,.11);
+
     border-radius: 40px;
 
     color: #dedede;
@@ -444,6 +472,152 @@ body::before {
 }
 
 /* =========================================================
+   ABOUT
+   ========================================================= */
+
+/*
+   DESKTOP:
+   FOTO DI ATAS
+   VISI MISI DI BAWAH
+
+   Ini mengikuti HTML yang kamu kirim:
+   
+   <section class="about">
+       <img>
+       <div class="about-text">
+           ...
+       </div>
+   </section>
+*/
+
+.about {
+    width: 100%;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--bg);
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   FOTO PRATAN
+   ========================================================= */
+
+.about > img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    /*
+       Jangan crop gambar.
+       Gambar logo landscape akan tampil utuh.
+    */
+    object-fit: contain;
+
+    background: #f0f1f2;
+}
+
+/* =========================================================
+   VISI MISI
+   ========================================================= */
+
+.about-text {
+    width: 100%;
+
+    padding: 80px max(40px, calc((100% - 1160px) / 2));
+
+    background:
+        radial-gradient(
+            ellipse at 10% 0%,
+            rgba(217,183,121,.06),
+            transparent 45%
+        ),
+        #080a0d;
+
+    text-align: left;
+}
+
+.about-text .section-label {
+    margin-bottom: 14px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.about-text h2 {
+    font-family: "Outfit", sans-serif;
+}
+
+.about-text > h2:first-of-type {
+    margin-bottom: 30px;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    line-height: 1.15;
+}
+
+.about-text h2 span {
+    color: var(--gold);
+}
+
+.about-text h2:not(:first-of-type) {
+    margin-top: 28px;
+
+    margin-bottom: 10px;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+}
+
+.about-text p {
+    max-width: 1050px;
+
+    margin-bottom: 15px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.about-tag {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding-left: 12px;
+
+    border-left: 2px solid var(--gold);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+/* =========================================================
    GENERAL SECTION
    ========================================================= */
 
@@ -453,6 +627,7 @@ body::before {
 
 .section-heading {
     margin-bottom: 48px;
+
     text-align: center;
 }
 
@@ -462,12 +637,14 @@ body::before {
     color: var(--gold);
 
     font-size: 10px;
+
     letter-spacing: 4px;
+
     text-transform: uppercase;
 }
 
 .section-heading h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: clamp(30px, 5vw, 48px);
 
@@ -482,225 +659,8 @@ body::before {
     color: var(--muted);
 
     font-size: 14px;
+
     line-height: 1.8;
-}
-
-/* =========================================================
-   ABOUT - DESKTOP
-   ========================================================= */
-
-/*
-   INI BAGIAN PALING PENTING.
-
-   Desktop:
-   kiri  = logo
-   kanan = visi misi
-*/
-
-.about {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.55fr)
-        minmax(360px, .75fr);
-
-    align-items: stretch;
-
-    gap: 0;
-
-    padding: 0;
-
-    margin: 0;
-
-    overflow: hidden;
-
-    background: #080a0d;
-}
-
-/* =========================================================
-   FOTO PRATAN
-   ========================================================= */
-
-.about > img,
-.about > .about-image {
-    width: 100%;
-
-    height: 100%;
-    min-height: 700px;
-
-    display: block;
-
-    object-fit: contain;
-    object-position: center;
-
-    background: #f0f1f2;
-
-    border: 0;
-    border-radius: 0;
-
-    margin: 0;
-    padding: 0;
-}
-
-/*
-   Kalau HTML menggunakan:
-
-   <div class="about-image">
-       <img ...>
-   </div>
-*/
-
-.about-image {
-    position: relative;
-
-    width: 100%;
-    min-height: 700px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    background: #f0f1f2;
-
-    border: 0;
-    border-radius: 0;
-}
-
-.about-image::before,
-.about-image::after {
-    display: none !important;
-    content: none !important;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-    object-position: center;
-
-    display: block;
-
-    margin: 0;
-    padding: 0;
-
-    border: 0;
-    border-radius: 0;
-}
-
-/* =========================================================
-   VISI MISI - KANAN
-   ========================================================= */
-
-.about-text,
-.about-content {
-    width: 100%;
-    min-width: 0;
-
-    padding: 70px 55px;
-
-    align-self: center;
-
-    text-align: left;
-
-    background:
-        radial-gradient(
-            ellipse at 20% 20%,
-            rgba(217,183,121,.05),
-            transparent 55%
-        ),
-        #080a0d;
-}
-
-.about-text .section-label {
-    text-align: left;
-}
-
-.about-text > h2:first-of-type,
-.about-content > h2:first-of-type {
-    font-family: 'Outfit', sans-serif;
-
-    font-size: clamp(30px, 3vw, 43px);
-
-    line-height: 1.15;
-
-    margin-bottom: 30px;
-}
-
-.about-text h2 span,
-.about-content h2 span {
-    color: var(--gold);
-}
-
-/* Visi / Misi heading */
-
-.about-text h2:not(:first-of-type),
-.about-content h2:not(:first-of-type) {
-    margin-top: 24px;
-    margin-bottom: 12px;
-
-    font-family: 'Outfit', sans-serif;
-
-    font-size: 28px;
-
-    line-height: 1.2;
-}
-
-/* PARAGRAPH */
-
-.about-text p,
-.about-content p {
-    margin-bottom: 15px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-    line-height: 1.85;
-}
-
-/* =========================================================
-   LIST MISI
-   ========================================================= */
-
-.about-text ol,
-.about-text ul,
-.about-content ol,
-.about-content ul {
-    margin: 10px 0 0;
-    padding-left: 20px;
-
-    color: var(--muted);
-
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.about-text li,
-.about-content li {
-    margin-bottom: 12px;
-}
-
-/* =========================================================
-   ABOUT TAG
-   ========================================================= */
-
-.about-tag {
-    display: inline-block;
-
-    margin-top: 18px;
-    padding-left: 12px;
-
-    border-left: 2px solid var(--gold);
-
-    color: var(--gold-light);
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
 }
 
 /* =========================================================
@@ -733,14 +693,14 @@ body::before {
 
     border: 1px solid rgba(255,255,255,.09);
 
+    border-radius: 14px;
+
     background:
         linear-gradient(
             145deg,
             #14171b,
             #0c0e11
         );
-
-    border-radius: 14px;
 
     transition: .35s ease;
 }
@@ -764,6 +724,7 @@ body::before {
     margin-bottom: 24px;
 
     border: 1px solid var(--line);
+
     border-radius: 12px;
 
     color: var(--gold);
@@ -774,7 +735,7 @@ body::before {
 .service-card h3 {
     margin-bottom: 10px;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: 17px;
 }
@@ -783,6 +744,7 @@ body::before {
     color: var(--muted);
 
     font-size: 12px;
+
     line-height: 1.8;
 }
 
@@ -804,9 +766,9 @@ body::before {
 
     border: 1px solid rgba(255,255,255,.1);
 
-    background: var(--surface);
-
     border-radius: 14px;
+
+    background: var(--surface);
 
     transition: .3s ease;
 }
@@ -837,6 +799,18 @@ body::before {
     object-fit: cover;
 }
 
+.portfolio-image span {
+    color: var(--gold);
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
 .portfolio-info {
     padding: 19px;
 }
@@ -847,13 +821,14 @@ body::before {
     font-size: 10px;
 
     letter-spacing: 2px;
+
     text-transform: uppercase;
 }
 
 .portfolio-info h3 {
     margin: 7px 0;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: 18px;
 }
@@ -874,6 +849,7 @@ body::before {
     text-align: center;
 
     border: 1px solid var(--line);
+
     border-radius: 20px;
 
     background:
@@ -888,7 +864,7 @@ body::before {
 .contact h2 {
     margin-bottom: 14px;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: clamp(29px, 5vw, 46px);
 }
@@ -905,6 +881,7 @@ body::before {
     color: var(--muted);
 
     font-size: 14px;
+
     line-height: 1.9;
 }
 
@@ -928,6 +905,7 @@ footer {
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
     gap: 15px;
@@ -938,9 +916,10 @@ footer {
 .footer-brand {
     color: var(--gold);
 
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 
     font-size: 12px;
+
     font-weight: 600;
 
     letter-spacing: 3px;
@@ -976,34 +955,24 @@ footer {
    TABLET
    ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
 
     .container {
-        width: min(94%, 900px);
-    }
-
-    .about {
-        grid-template-columns:
-            minmax(0, 1.15fr)
-            minmax(300px, .85fr);
-    }
-
-    .about > img,
-    .about > .about-image {
-        min-height: 600px;
-    }
-
-    .about-text,
-    .about-content {
-        padding: 50px 35px;
+        width: calc(100% - 40px);
     }
 
     .service-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .about-text {
+        padding: 70px 40px;
     }
 }
 
@@ -1020,17 +989,12 @@ footer {
 
     .container {
         width: calc(100% - 32px);
-        max-width: none;
     }
 
-    /* ---------------------------------
-       NAVBAR
-       --------------------------------- */
+    /* NAV */
 
     .nav-inner {
         min-height: 64px;
-
-        padding: 0;
     }
 
     .nav-links {
@@ -1052,11 +1016,13 @@ footer {
 
     .brand-name {
         font-size: 14px;
+
         letter-spacing: 2px;
     }
 
     .brand-name small {
         font-size: 7px;
+
         letter-spacing: 3px;
     }
 
@@ -1066,9 +1032,7 @@ footer {
         font-size: 10px;
     }
 
-    /* ---------------------------------
-       HERO
-       --------------------------------- */
+    /* HERO */
 
     .hero {
         min-height: auto;
@@ -1078,11 +1042,13 @@ footer {
 
     .hero h1 {
         font-size: 55px;
+
         letter-spacing: 2px;
     }
 
     .hero-subtitle {
         font-size: 13px;
+
         letter-spacing: 7px;
     }
 
@@ -1109,9 +1075,7 @@ footer {
         padding: 13px 20px;
     }
 
-    /* ---------------------------------
-       SOCIAL
-       --------------------------------- */
+    /* SOCIAL */
 
     .social-section {
         padding: 25px 0;
@@ -1143,37 +1107,22 @@ footer {
         height: 15px;
     }
 
-    /* =================================================
+    /* =====================================================
        ABOUT MOBILE
-       ================================================= */
-
-    /*
-       FOTO ATAS
-       TEKS BAWAH
-    */
+       ===================================================== */
 
     .about {
-        display: flex;
-
-        flex-direction: column;
-
         width: 100%;
 
-        gap: 0;
-
-        padding: 0;
-
-        margin: 0;
+        display: block;
 
         overflow: hidden;
     }
 
     /*
-       FOTO LOGO
-
-       PENTING:
-       height auto + object-fit contain
-       supaya logo LANDSCAPE tidak dipotong.
+       GAMBAR FULL WIDTH.
+       TIDAK DIPAKSA 16:9.
+       TIDAK DI-CROP.
     */
 
     .about > img {
@@ -1181,117 +1130,73 @@ footer {
 
         height: auto !important;
 
+        max-width: none !important;
+
         min-height: 0 !important;
 
         max-height: none !important;
 
-        aspect-ratio: 16 / 9;
-
         object-fit: contain !important;
 
         object-position: center;
-
-        background: #f0f1f2;
 
         margin: 0 !important;
         padding: 0 !important;
 
         border: 0 !important;
         border-radius: 0 !important;
-    }
-
-    /*
-       Jika menggunakan .about-image
-    */
-
-    .about > .about-image {
-        width: 100% !important;
-
-        min-height: 0 !important;
-
-        height: auto !important;
-
-        aspect-ratio: 16 / 9;
 
         background: #f0f1f2;
-
-        border: 0 !important;
-        border-radius: 0 !important;
     }
 
-    .about > .about-image img {
-        width: 100% !important;
-        height: 100% !important;
+    /* VISI MISI */
 
-        min-height: 0 !important;
-
-        object-fit: contain !important;
-    }
-
-    /* ---------------------------------
-       VISI MISI MOBILE
-       --------------------------------- */
-
-    .about-text,
-    .about-content {
+    .about-text {
         width: 100%;
 
-        padding: 45px 22px 55px;
+        padding: 50px 22px 60px;
 
         text-align: left;
 
-        background: #080a0d;
+        background:
+            radial-gradient(
+                ellipse at 10% 0%,
+                rgba(217,183,121,.06),
+                transparent 50%
+            ),
+            #080a0d;
     }
 
-    .about-text .section-label,
-    .about-content .section-label {
-        text-align: left;
+    .about-text .section-label {
+        margin-bottom: 12px;
 
         font-size: 9px;
 
         letter-spacing: 3px;
     }
 
-    .about-text > h2:first-of-type,
-    .about-content > h2:first-of-type {
+    .about-text > h2:first-of-type {
+        margin-bottom: 28px;
+
         font-size: 29px;
 
         line-height: 1.2;
-
-        margin-bottom: 28px;
     }
 
-    .about-text h2:not(:first-of-type),
-    .about-content h2:not(:first-of-type) {
+    .about-text h2:not(:first-of-type) {
         margin-top: 28px;
+
         margin-bottom: 10px;
 
         font-size: 25px;
     }
 
-    .about-text p,
-    .about-content p {
-        font-size: 13px;
-
-        line-height: 1.8;
-
-        text-align: left;
-    }
-
-    .about-text ol,
-    .about-text ul,
-    .about-content ol,
-    .about-content ul {
-        padding-left: 20px;
+    .about-text p {
+        margin-bottom: 15px;
 
         font-size: 13px;
 
         line-height: 1.8;
-    }
-
-    .about-text li,
-    .about-content li {
-        margin-bottom: 13px;
     }
 
     .about-tag {
@@ -1302,13 +1207,13 @@ footer {
         letter-spacing: 1.5px;
     }
 
-    /* ---------------------------------
-       SERVICES
-       --------------------------------- */
+    /* SECTIONS */
 
     .section {
         padding: 65px 0;
     }
+
+    /* SERVICES */
 
     .service-grid {
         grid-template-columns: 1fr;
@@ -1320,9 +1225,7 @@ footer {
         min-height: auto;
     }
 
-    /* ---------------------------------
-       PORTFOLIO
-       --------------------------------- */
+    /* PORTFOLIO */
 
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -1330,17 +1233,13 @@ footer {
         gap: 15px;
     }
 
-    /* ---------------------------------
-       CONTACT
-       --------------------------------- */
+    /* CONTACT */
 
     .contact {
         padding: 50px 20px;
     }
 
-    /* ---------------------------------
-       FOOTER
-       --------------------------------- */
+    /* FOOTER */
 
     .footer-inner {
         justify-content: center;
@@ -1350,7 +1249,7 @@ footer {
 }
 
 /* =========================================================
-   HP KECIL
+   SMALL PHONE
    ========================================================= */
 
 @media (max-width: 400px) {
@@ -1385,23 +1284,19 @@ footer {
         padding: 9px 3px;
     }
 
-    .about-text,
-    .about-content {
+    .about-text {
         padding: 40px 18px 50px;
     }
 
-    .about-text > h2:first-of-type,
-    .about-content > h2:first-of-type {
+    .about-text > h2:first-of-type {
         font-size: 26px;
     }
 
-    .about-text h2:not(:first-of-type),
-    .about-content h2:not(:first-of-type) {
+    .about-text h2:not(:first-of-type) {
         font-size: 23px;
     }
 
-    .about-text p,
-    .about-content p {
+    .about-text p {
         font-size: 12px;
     }
 }
