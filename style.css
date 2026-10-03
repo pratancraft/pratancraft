@@ -631,4 +631,52 @@ img {
         padding: 9px 14px;
     }
 }
+/* =========================================
+   MOBILE HEADER / LOGO FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        height: 70px;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Logo */
+    header .logo,
+    header .logo img,
+    .navbar-brand img,
+    .brand-logo,
+    .site-logo {
+        width: 120px !important;
+        max-width: 120px !important;
+        height: auto !important;
+        max-height: 45px !important;
+        object-fit: contain;
+    }
+
+    /* Kalau logo berupa text */
+    header .logo {
+        font-size: 24px !important;
+        line-height: 1;
+    }
+
+    /* Header ketika scroll */
+    header.scrolled {
+        height: 58px;
+    }
+
+    header.scrolled .logo img,
+    header.scrolled .navbar-brand img,
+    header.scrolled .brand-logo,
+    header.scrolled .site-logo {
+        width: 95px !important;
+        max-width: 95px !important;
+        max-height: 38px !important;
+    }
+}
 
