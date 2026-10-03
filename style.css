@@ -1,923 +1,1407 @@
+/* =========================================================
+   PRATAN CRAFT - CLEAN RESPONSIVE CSS
+   ========================================================= */
+
 :root {
-  --bg: #080a0d;
-  --surface: #111419;
-  --gold: #d9b779;
-  --gold-light: #f5deb0;
-  --white: #f7f6f2;
-  --muted: #a1a3a8;
-  --line: rgba(217,183,121,.22);
+    --bg: #080a0d;
+    --surface: #111419;
+    --gold: #d9b779;
+    --gold-light: #f5deb0;
+    --white: #f7f6f2;
+    --muted: #a1a3a8;
+    --line: rgba(217,183,121,.22);
 }
 
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
 }
 
 .container {
-  width: min(1160px, 90%);
-  margin: auto;
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
 }
 
-/* =========================================
+/* =========================================================
    BACKGROUND
-========================================= */
+   ========================================================= */
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(
-      ellipse at 50% 15%,
-      rgba(180,133,65,.12),
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 90% 75%,
-      rgba(180,133,65,.07),
-      transparent 35%
-    );
-  pointer-events: none;
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 15%,
+            rgba(180,133,65,.12),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 90% 75%,
+            rgba(180,133,65,.07),
+            transparent 35%
+        );
+
+    pointer-events: none;
 }
 
 .noise {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: .13;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: .10;
+    pointer-events: none;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
 }
 
-/* =========================================
+/* =========================================================
    NAVBAR
-========================================= */
+   ========================================================= */
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(8,10,13,.92);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(8,10,13,.92);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
 .nav-inner {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
 }
 
 .brand-mark {
-  width: 43px;
-  height: 43px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  display: grid;
-  place-items: center;
-  font-family: 'Outfit', sans-serif;
-  font-size: 25px;
-  font-weight: 700;
-  transform: rotate(-45deg);
-  border-radius: 9px;
+    width: 43px;
+    height: 43px;
+
+    border: 1px solid var(--gold);
+    border-radius: 9px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--gold);
+
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+
+    transform: rotate(-45deg);
 }
 
 .brand-mark span {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .brand-name {
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 3px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 
 .brand-name small {
-  display: block;
-  color: var(--gold);
-  font-size: 9px;
-  letter-spacing: 5px;
-  font-weight: 400;
-  margin-top: 1px;
+    display: block;
+
+    margin-top: 1px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 5px;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  list-style: none;
-  font-size: 13px;
-  color: #c2c2c2;
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    list-style: none;
+
+    color: #c2c2c2;
+
+    font-size: 13px;
+}
+
+.nav-links a {
+    transition: .3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
 }
 
 .nav-contact {
-  padding: 11px 18px;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  color: var(--gold-light);
-  font-size: 12px;
+    padding: 11px 18px;
+
+    border: 1px solid var(--line);
+    border-radius: 30px;
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+
+    transition: .3s ease;
 }
 
-/* =========================================
+.nav-contact:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+/* =========================================================
    HERO
-========================================= */
+   ========================================================= */
 
 .hero {
-  min-height: 620px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 100px 0 95px;
-  text-align: center;
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 0 95px;
+
+    text-align: center;
 }
 
 .hero-content {
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--line);
-  border-radius: 50px;
-  padding: 9px 17px;
-  color: var(--gold-light);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 17px;
+
+    border: 1px solid var(--line);
+    border-radius: 50px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 28px;
+
+    background: rgba(217,183,121,.04);
 }
 
 .eyebrow::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 12px var(--gold);
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--gold);
+    box-shadow: 0 0 12px var(--gold);
 }
 
 .hero h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(54px, 10vw, 112px);
-  line-height: .95;
-  letter-spacing: 5px;
-  font-weight: 800;
-  background: linear-gradient(
-    110deg,
-    #fff 15%,
-    #e9d2a5 55%,
-    #b98c4e 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(54px, 10vw, 112px);
+    line-height: .95;
+
+    letter-spacing: 5px;
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            110deg,
+            #fff 15%,
+            #e9d2a5 55%,
+            #b98c4e 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
 }
 
 .hero-subtitle {
-  color: var(--gold);
-  font-size: clamp(14px, 2vw, 19px);
-  letter-spacing: 11px;
-  margin-top: 18px;
-  font-weight: 500;
+    margin-top: 18px;
+
+    color: var(--gold);
+
+    font-size: clamp(14px, 2vw, 19px);
+
+    letter-spacing: 11px;
+    font-weight: 500;
 }
 
 .hero-line {
-  width: 100px;
-  height: 1px;
-  background: var(--gold);
-  margin: 29px auto;
+    width: 100px;
+    height: 1px;
+
+    margin: 29px auto;
+
+    background: var(--gold);
+    box-shadow: 0 0 15px var(--gold);
 }
 
 .hero-description {
-  max-width: 580px;
-  margin: auto;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.9;
+    max-width: 580px;
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.9;
 }
 
 .hero-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 13px;
-  margin-top: 34px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 34px;
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  border-radius: 50px;
-  padding: 14px 25px;
-  font-size: 13px;
-  font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: .3s ease;
 }
 
 .btn-gold {
-  color: #17120a;
-  background: linear-gradient(
-    120deg,
-    #f2dba9,
-    #c49b5b
-  );
+    color: #17120a;
+
+    background:
+        linear-gradient(
+            120deg,
+            #f2dba9,
+            #c49b5b
+        );
+
+    box-shadow:
+        0 5px 25px rgba(217,183,121,.12);
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 30px rgba(217,183,121,.3);
 }
 
 .btn-outline {
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,.2);
+    color: var(--white);
+
+    border: 1px solid rgba(255,255,255,.2);
 }
 
-/* =========================================
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* =========================================================
    SOCIAL
-========================================= */
+   ========================================================= */
 
 .social-section {
-  padding: 26px 0 35px;
-  border-top: 1px solid rgba(255,255,255,.07);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  text-align: center;
+    padding: 26px 0 35px;
+
+    border-top: 1px solid rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+
+    background: rgba(255,255,255,.012);
+
+    text-align: center;
 }
 
 .social-title {
-  color: #8f9298;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+
+    color: #8f9298;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .social-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
 }
 
 .social-link {
-  min-width: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  padding: 12px 17px;
-  border: 1px solid rgba(255,255,255,.11);
-  border-radius: 40px;
-  font-size: 12px;
-  color: #dedede;
+    min-width: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 17px;
+
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 40px;
+
+    color: #dedede;
+
+    font-size: 12px;
+
+    transition: .3s ease;
 }
 
 .social-link svg {
-  width: 17px;
-  height: 17px;
+    width: 17px;
+    height: 17px;
 }
 
-/* =========================================
-   SECTION
-========================================= */
+.social-link:hover {
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    background: rgba(217,183,121,.06);
+
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   GENERAL SECTION
+   ========================================================= */
 
 .section {
-  padding: 100px 0;
+    padding: 100px 0;
 }
 
 .section-heading {
-  text-align: center;
-  margin-bottom: 48px;
+    margin-bottom: 48px;
+    text-align: center;
 }
 
 .section-label {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
+    margin-bottom: 15px;
+
+    color: var(--gold);
+
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .section-heading h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(30px, 5vw, 48px);
-  font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 600;
 }
 
 .section-heading p {
-  color: var(--muted);
-  max-width: 560px;
-  margin: 14px auto 0;
-  font-size: 14px;
-  line-height: 1.8;
+    max-width: 560px;
+
+    margin: 14px auto 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.8;
 }
 
-/* =========================================
+/* =========================================================
    ABOUT - DESKTOP
-========================================= */
+   ========================================================= */
+
+/*
+   INI BAGIAN PALING PENTING.
+
+   Desktop:
+   kiri  = logo
+   kanan = visi misi
+*/
 
 .about {
-  width: min(1160px, 90%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 60px;
-  padding: 100px 0;
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.55fr)
+        minmax(360px, .75fr);
+
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #080a0d;
+}
+
+/* =========================================================
+   FOTO PRATAN
+   ========================================================= */
+
+.about > img,
+.about > .about-image {
+    width: 100%;
+
+    height: 100%;
+    min-height: 700px;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #f0f1f2;
+
+    border: 0;
+    border-radius: 0;
+
+    margin: 0;
+    padding: 0;
 }
 
 /*
-   GAMBAR PRATAN
-   UKURAN DESKTOP
+   Kalau HTML menggunakan:
+
+   <div class="about-image">
+       <img ...>
+   </div>
 */
 
-.about > img {
-  display: block;
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-  border-radius: 18px;
+.about-image {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #f0f1f2;
+
+    border: 0;
+    border-radius: 0;
 }
 
-/* =========================================
-   ABOUT TEXT
-========================================= */
-
-.about-text {
-  min-width: 0;
+.about-image::before,
+.about-image::after {
+    display: none !important;
+    content: none !important;
 }
 
-.about-text h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(28px,4vw,42px);
-  line-height: 1.2;
-  margin-bottom: 20px;
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
 }
 
-.about-text h2 span {
-  color: var(--gold);
+/* =========================================================
+   VISI MISI - KANAN
+   ========================================================= */
+
+.about-text,
+.about-content {
+    width: 100%;
+    min-width: 0;
+
+    padding: 70px 55px;
+
+    align-self: center;
+
+    text-align: left;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 20%,
+            rgba(217,183,121,.05),
+            transparent 55%
+        ),
+        #080a0d;
 }
 
-.about-text p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 2;
-  margin-bottom: 17px;
+.about-text .section-label {
+    text-align: left;
 }
+
+.about-text > h2:first-of-type,
+.about-content > h2:first-of-type {
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(30px, 3vw, 43px);
+
+    line-height: 1.15;
+
+    margin-bottom: 30px;
+}
+
+.about-text h2 span,
+.about-content h2 span {
+    color: var(--gold);
+}
+
+/* Visi / Misi heading */
+
+.about-text h2:not(:first-of-type),
+.about-content h2:not(:first-of-type) {
+    margin-top: 24px;
+    margin-bottom: 12px;
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+}
+
+/* PARAGRAPH */
+
+.about-text p,
+.about-content p {
+    margin-bottom: 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   LIST MISI
+   ========================================================= */
+
+.about-text ol,
+.about-text ul,
+.about-content ol,
+.about-content ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.about-text li,
+.about-content li {
+    margin-bottom: 12px;
+}
+
+/* =========================================================
+   ABOUT TAG
+   ========================================================= */
 
 .about-tag {
-  display: inline-block;
-  color: var(--gold-light);
-  font-size: 11px;
-  letter-spacing: 2px;
-  border-left: 2px solid var(--gold);
-  padding-left: 12px;
-  margin-top: 9px;
+    display: inline-block;
+
+    margin-top: 18px;
+    padding-left: 12px;
+
+    border-left: 2px solid var(--gold);
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
 
-/* =========================================
+/* =========================================================
    SERVICES
-========================================= */
+   ========================================================= */
 
 .services {
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(255,255,255,.018),
-    transparent
-  );
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(255,255,255,.018),
+            transparent
+        );
 }
 
 .service-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 17px;
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 17px;
 }
 
 .service-card {
-  padding: 28px 22px;
-  border: 1px solid rgba(255,255,255,.09);
-  background: linear-gradient(
-    145deg,
-    #14171b,
-    #0c0e11
-  );
-  border-radius: 14px;
-  min-height: 220px;
+    min-height: 220px;
+
+    padding: 28px 22px;
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            #14171b,
+            #0c0e11
+        );
+
+    border-radius: 14px;
+
+    transition: .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.3);
 }
 
 .service-icon {
-  width: 46px;
-  height: 46px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  color: var(--gold);
-  font-size: 22px;
-  margin-bottom: 24px;
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 24px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+
+    color: var(--gold);
+
+    font-size: 22px;
 }
 
 .service-card h3 {
-  font-family: 'Outfit',sans-serif;
-  font-size: 17px;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 17px;
 }
 
 .service-card p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.8;
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-/* =========================================
+/* =========================================================
    PORTFOLIO
-========================================= */
+   ========================================================= */
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
 }
 
 .portfolio-card {
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  background: var(--surface);
-  border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background: var(--surface);
+
+    border-radius: 14px;
+
+    transition: .3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--line);
 }
 
 .portfolio-image {
-  aspect-ratio: 16/10;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: #15171b;
+    aspect-ratio: 16 / 10;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    background: #15171b;
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
 .portfolio-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 .portfolio-info {
-  padding: 19px;
+    padding: 19px;
 }
 
 .portfolio-info small {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .portfolio-info h3 {
-  font-family: 'Outfit',sans-serif;
-  font-size: 18px;
-  margin: 7px 0;
+    margin: 7px 0;
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 18px;
 }
 
 .portfolio-info p {
-  font-size: 12px;
-  color: var(--muted);
+    color: var(--muted);
+
+    font-size: 12px;
 }
 
-/* =========================================
+/* =========================================================
    CONTACT
-========================================= */
+   ========================================================= */
 
 .contact {
-  padding: 75px 25px;
-  text-align: center;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: #101216;
+    padding: 75px 25px;
+
+    text-align: center;
+
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 120%,
+            rgba(217,183,121,.12),
+            transparent 65%
+        ),
+        #101216;
 }
 
 .contact h2 {
-  font-family: 'Outfit',sans-serif;
-  font-size: clamp(29px,5vw,46px);
-  margin-bottom: 14px;
+    margin-bottom: 14px;
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(29px, 5vw, 46px);
 }
 
 .contact h2 span {
-  color: var(--gold);
+    color: var(--gold);
 }
 
 .contact p {
-  max-width: 520px;
-  margin: auto;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
+    max-width: 520px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.9;
 }
 
 .contact .btn {
-  margin-top: 28px;
+    margin-top: 28px;
 }
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+   ========================================================= */
 
 footer {
-  padding: 28px 0;
-  margin-top: 75px;
-  border-top: 1px solid rgba(255,255,255,.08);
+    margin-top: 75px;
+
+    padding: 28px 0;
+
+    border-top: 1px solid rgba(255,255,255,.08);
 }
 
 .footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-}
+    display: flex;
 
-.footer-copy {
-  color: #777b81;
-  font-size: 11px;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
 }
 
 .footer-brand {
-  color: var(--gold);
-  letter-spacing: 3px;
-  font-family: 'Outfit',sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+    color: var(--gold);
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
 }
 
-/* =========================================
+.footer-copy {
+    color: #777b81;
+
+    font-size: 11px;
+}
+
+/* =========================================================
    ANIMATION
-========================================= */
+   ========================================================= */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
 }
 
 .reveal.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+
+    transform: translateY(0);
 }
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+   ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-  .service-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+    .container {
+        width: min(94%, 900px);
+    }
 
-  .portfolio-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+    .about {
+        grid-template-columns:
+            minmax(0, 1.15fr)
+            minmax(300px, .85fr);
+    }
 
-  .about {
-    gap: 35px;
-  }
+    .about > img,
+    .about > .about-image {
+        min-height: 600px;
+    }
+
+    .about-text,
+    .about-content {
+        padding: 50px 35px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+   ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
-  .container {
-    width: calc(100% - 32px);
-    max-width: none;
-  }
+    .container {
+        width: calc(100% - 32px);
+        max-width: none;
+    }
 
-  /* NAVBAR */
+    /* ---------------------------------
+       NAVBAR
+       --------------------------------- */
 
-  .nav-inner {
-    min-height: 64px;
-    padding: 0;
-  }
+    .nav-inner {
+        min-height: 64px;
 
-  .nav-links {
-    display: none;
-  }
+        padding: 0;
+    }
 
-  .brand {
-    gap: 8px;
-  }
+    .nav-links {
+        display: none;
+    }
 
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    font-size: 19px;
-    border-radius: 7px;
-  }
+    .brand {
+        gap: 8px;
+    }
 
-  .brand-name {
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
+    .brand-mark {
+        width: 34px;
+        height: 34px;
 
-  .brand-name small {
-    font-size: 7px;
-    letter-spacing: 3px;
-  }
+        font-size: 19px;
 
-  .nav-contact {
-    padding: 8px 11px;
-    font-size: 9px;
-  }
+        border-radius: 7px;
+    }
 
-  /* =====================================
-     HERO MOBILE
-  ===================================== */
+    .brand-name {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
 
-  .hero {
-    min-height: auto;
-    padding: 70px 0 70px;
-  }
+    .brand-name small {
+        font-size: 7px;
+        letter-spacing: 3px;
+    }
 
-  .hero-content {
-    width: 100%;
-    padding: 0 10px;
-  }
+    .nav-contact {
+        padding: 8px 12px;
 
-  .eyebrow {
-    font-size: 9px;
-    padding: 8px 13px;
-    margin-bottom: 24px;
-    letter-spacing: 1.5px;
-  }
+        font-size: 10px;
+    }
 
-  .hero h1 {
-    font-size: clamp(44px, 15vw, 64px);
-    line-height: .95;
-    letter-spacing: 2px;
-    white-space: nowrap;
-  }
+    /* ---------------------------------
+       HERO
+       --------------------------------- */
 
-  .hero-subtitle {
-    font-size: 12px;
-    letter-spacing: 7px;
-    margin-top: 15px;
-  }
+    .hero {
+        min-height: auto;
 
-  .hero-line {
-    width: 70px;
-    margin: 23px auto;
-  }
+        padding: 75px 0 65px;
+    }
 
-  .hero-description {
-    width: 100%;
-    max-width: 350px;
-    font-size: 13px;
-    line-height: 1.8;
-    padding: 0;
-  }
+    .hero h1 {
+        font-size: 55px;
+        letter-spacing: 2px;
+    }
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 28px;
-  }
+    .hero-subtitle {
+        font-size: 13px;
+        letter-spacing: 7px;
+    }
 
-  .hero-buttons .btn {
-    width: 100%;
-    max-width: 330px;
-  }
+    .hero-description {
+        padding: 0 10px;
 
-  /* =====================================
-     SOCIAL MOBILE
-  ===================================== */
+        font-size: 13px;
 
-  .social-section {
-    padding: 28px 0;
-  }
+        line-height: 1.8;
+    }
 
-  .social-list {
-    width: 100%;
-    gap: 8px;
-  }
+    .hero-buttons {
+        flex-direction: column;
 
-  .social-link {
-    min-width: 0;
-    flex: 1 1 30%;
-    padding: 10px 8px;
-    font-size: 11px;
-  }
+        align-items: center;
 
-  /* =====================================
-     ABOUT MOBILE
-     
-     INI BAGIAN PALING PENTING
-     ===================================== */
+        gap: 10px;
+    }
 
-  .about {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 65px 16px;
-    margin: 0;
-  }
+    .btn {
+        width: 100%;
+        max-width: 330px;
 
-  /*
-     FOTO PRATAN DI HP
-     
-     TIDAK BOLEH 100%.
-     DIBATASI 270px.
-  */
+        padding: 13px 20px;
+    }
 
-  .about > img {
-    display: block;
+    /* ---------------------------------
+       SOCIAL
+       --------------------------------- */
 
-    width: 270px !important;
-    height: 270px !important;
+    .social-section {
+        padding: 25px 0;
+    }
 
-    max-width: 270px !important;
-    max-height: 270px !important;
+    .social-list {
+        display: grid;
 
-    min-width: 0 !important;
-    min-height: 0 !important;
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
 
-    margin: 0 auto;
+        gap: 7px;
+    }
 
-    object-fit: contain !important;
-    object-position: center;
+    .social-link {
+        min-width: 0;
 
-    border: 0 !important;
-    border-radius: 0 !important;
-  }
+        width: 100%;
 
-  /*
-     VISI MISI
-  */
+        padding: 10px 5px;
 
-  .about-text {
-    width: 100%;
-    max-width: 390px;
-    text-align: center;
-    margin: 0 auto;
-  }
+        font-size: 10px;
 
-  .about-text .section-label {
-    text-align: center;
-  }
+        gap: 5px;
+    }
 
-  .about-text h2 {
-    text-align: center;
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-  }
+    .social-link svg {
+        width: 15px;
+        height: 15px;
+    }
 
-  .about-text p {
-    text-align: center;
-    font-size: 13px;
-    line-height: 1.8;
-  }
+    /* =================================================
+       ABOUT MOBILE
+       ================================================= */
 
-  .about-tag {
-    border-left: 0;
-    border-top: 1px solid var(--gold);
-    padding-left: 0;
-    padding-top: 10px;
-  }
+    /*
+       FOTO ATAS
+       TEKS BAWAH
+    */
 
-  /* =====================================
-     SERVICES MOBILE
-  ===================================== */
+    .about {
+        display: flex;
 
-  .section {
-    padding: 65px 0;
-  }
+        flex-direction: column;
 
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+        width: 100%;
 
-  .service-card {
-    min-height: auto;
-  }
+        gap: 0;
 
-  /* =====================================
-     PORTFOLIO MOBILE
-  ===================================== */
+        padding: 0;
 
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
+        margin: 0;
 
-  /* =====================================
-     CONTACT MOBILE
-  ===================================== */
+        overflow: hidden;
+    }
 
-  .contact {
-    padding: 50px 20px;
-  }
+    /*
+       FOTO LOGO
 
-  /* =====================================
-     FOOTER MOBILE
-  ===================================== */
+       PENTING:
+       height auto + object-fit contain
+       supaya logo LANDSCAPE tidak dipotong.
+    */
 
-  .footer-inner {
-    justify-content: center;
-    text-align: center;
-  }
+    .about > img {
+        width: 100% !important;
+
+        height: auto !important;
+
+        min-height: 0 !important;
+
+        max-height: none !important;
+
+        aspect-ratio: 16 / 9;
+
+        object-fit: contain !important;
+
+        object-position: center;
+
+        background: #f0f1f2;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /*
+       Jika menggunakan .about-image
+    */
+
+    .about > .about-image {
+        width: 100% !important;
+
+        min-height: 0 !important;
+
+        height: auto !important;
+
+        aspect-ratio: 16 / 9;
+
+        background: #f0f1f2;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .about > .about-image img {
+        width: 100% !important;
+        height: 100% !important;
+
+        min-height: 0 !important;
+
+        object-fit: contain !important;
+    }
+
+    /* ---------------------------------
+       VISI MISI MOBILE
+       --------------------------------- */
+
+    .about-text,
+    .about-content {
+        width: 100%;
+
+        padding: 45px 22px 55px;
+
+        text-align: left;
+
+        background: #080a0d;
+    }
+
+    .about-text .section-label,
+    .about-content .section-label {
+        text-align: left;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .about-text > h2:first-of-type,
+    .about-content > h2:first-of-type {
+        font-size: 29px;
+
+        line-height: 1.2;
+
+        margin-bottom: 28px;
+    }
+
+    .about-text h2:not(:first-of-type),
+    .about-content h2:not(:first-of-type) {
+        margin-top: 28px;
+        margin-bottom: 10px;
+
+        font-size: 25px;
+    }
+
+    .about-text p,
+    .about-content p {
+        font-size: 13px;
+
+        line-height: 1.8;
+
+        text-align: left;
+    }
+
+    .about-text ol,
+    .about-text ul,
+    .about-content ol,
+    .about-content ul {
+        padding-left: 20px;
+
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+    .about-text li,
+    .about-content li {
+        margin-bottom: 13px;
+    }
+
+    .about-tag {
+        margin-top: 20px;
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+    /* ---------------------------------
+       SERVICES
+       --------------------------------- */
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    /* ---------------------------------
+       PORTFOLIO
+       --------------------------------- */
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    /* ---------------------------------
+       CONTACT
+       --------------------------------- */
+
+    .contact {
+        padding: 50px 20px;
+    }
+
+    /* ---------------------------------
+       FOOTER
+       --------------------------------- */
+
+    .footer-inner {
+        justify-content: center;
+
+        text-align: center;
+    }
 }
 
-/* =========================================
+/* =========================================================
    HP KECIL
-========================================= */
+   ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
-  .brand-name {
-    font-size: 13px;
-  }
+    .container {
+        width: calc(100% - 28px);
+    }
 
-  .nav-contact {
-    font-size: 8px;
-    padding: 7px 9px;
-  }
+    .brand-name {
+        font-size: 13px;
+    }
 
-  .hero h1 {
-    font-size: 42px;
-    letter-spacing: 1px;
-  }
+    .nav-contact {
+        padding: 7px 10px;
 
-  .hero-subtitle {
-    font-size: 11px;
-    letter-spacing: 6px;
-  }
+        font-size: 9px;
+    }
 
-  .about {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+    .hero h1 {
+        font-size: 45px;
+    }
 
-  .about > img {
-    width: 240px !important;
-    height: 240px !important;
-    max-width: 240px !important;
-    max-height: 240px !important;
-  }
+    .hero-subtitle {
+        font-size: 11px;
 
-  .about-text h2 {
-    font-size: 25px;
-  }
+        letter-spacing: 6px;
+    }
 
-  .social-link {
-    font-size: 10px;
-  }
+    .social-link {
+        font-size: 9px;
+
+        padding: 9px 3px;
+    }
+
+    .about-text,
+    .about-content {
+        padding: 40px 18px 50px;
+    }
+
+    .about-text > h2:first-of-type,
+    .about-content > h2:first-of-type {
+        font-size: 26px;
+    }
+
+    .about-text h2:not(:first-of-type),
+    .about-content h2:not(:first-of-type) {
+        font-size: 23px;
+    }
+
+    .about-text p,
+    .about-content p {
+        font-size: 12px;
+    }
 }
