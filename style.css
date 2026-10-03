@@ -53,7 +53,7 @@
   position: relative !important;
 
   width: 100% !important;
-  max-width: 320px !important;
+  max-width: 250px !important;
   height: auto !important;
   aspect-ratio: 852 / 617 !important;
   min-height: 0 !important;
@@ -775,7 +775,7 @@ img {
         display: block !important;
 
         /* INI YANG MEMBUAT LOGO JADI KECIL */
-        width: 320px !important;
+        width: 250px !important;
         max-width: 80vw !important;
 
         height: 320px !important;
