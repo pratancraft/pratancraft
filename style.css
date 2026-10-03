@@ -1,0 +1,480 @@
+
+/* =================================
+   PORTFOLIO FOTO
+================================= */
+
+.portfolio-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    position: relative;
+    overflow: hidden;
+    background: #15171b;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .6s ease, filter .4s ease;
+}
+
+.portfolio-card:hover .portfolio-image img {
+    transform: scale(1.07);
+    filter: brightness(1.08);
+}
+
+.portfolio-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.45),
+        transparent 60%
+    );
+    pointer-events: none;
+}
+
+/* ===== ABOUT: FIX FOTO PRATAN CRAFT ===== */
+
+#about .about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+/* Bingkai foto landscape */
+#about .about-visual {
+  display: block !important;
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
+  aspect-ratio: 852 / 617 !important;
+  min-height: 0 !important;
+
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+
+  background: #f0f1f2 !important;
+  border: 1px solid rgba(217,183,121,.35);
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0,0,0,.3);
+}
+
+/* Hilangkan dekorasi lingkaran */
+#about .about-visual::before,
+#about .about-visual::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Pastikan logo tampil utuh */
+#about .about-visual > img.pratan-photo {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+/* Teks di sebelah foto */
+#about .about-text {
+  min-width: 0;
+}
+
+/* Tampilan HP */
+@media (max-width: 650px) {
+  #about .about {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  #about .about-visual {
+    width: 100% !important;
+    max-width: 520px !important;
+    aspect-ratio: 852 / 617 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+.about {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+/* BAGIAN FOTO */
+.about > img {
+    width: 55%;
+    max-width: 550px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* BAGIAN TEKS */
+.about-content {
+    width: 45%;
+    text-align: left;
+}
+
+.about-content span {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.about-content h1 {
+    margin: 0 0 8px;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.about-content h3 {
+    margin: 0 0 25px;
+    font-size: 16px;
+}
+
+.about-content p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-content ul {
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.about-buttons a {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #fff;
+    background: #111;
+}
+
+.about-buttons a:last-child {
+    color: #111;
+    background: transparent;
+    border: 1px solid #111;
+}
+/* =========================================
+   ABOUT / VISI MISI
+========================================= */
+
+.about-section {
+  position: relative;
+}
+
+
+/* LAYOUT KIRI - KANAN */
+
+.about-layout {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+}
+
+
+/* =========================================
+   GAMBAR PRATAN
+========================================= */
+
+.about-image {
+
+  width: 100%;
+
+  min-height: 520px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  background: #e9edef;
+
+  position: relative;
+
+}
+
+
+/* gambar */
+
+.about-image img {
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 520px;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+}
+
+
+/* efek gelap tipis */
+
+.about-image::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,.02),
+      rgba(0,0,0,.12)
+    );
+
+  pointer-events: none;
+
+}
+
+
+/* =========================================
+   CONTENT KANAN
+========================================= */
+
+.about-content {
+
+  max-width: 600px;
+
+}
+
+
+.about-content h2 {
+
+  font-family: 'Outfit', sans-serif;
+
+  font-size: clamp(32px, 4vw, 48px);
+
+  line-height: 1.15;
+
+  font-weight: 600;
+
+  margin-bottom: 25px;
+
+}
+
+
+.about-content h2 span {
+
+  color: var(--gold);
+
+}
+
+
+.about-content > p {
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+
+  margin-bottom: 17px;
+
+}
+
+
+/* =========================================
+   VISI / MISI
+========================================= */
+
+.vision-item {
+
+  display: grid;
+
+  grid-template-columns: 3px 1fr;
+
+  gap: 20px;
+
+  margin-top: 42px;
+
+}
+
+
+.vision-line {
+
+  width: 3px;
+
+  height: 100%;
+
+  min-height: 80px;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      var(--gold),
+      rgba(217,183,121,.08)
+    );
+
+}
+
+
+.vision-item h3 {
+
+  color: var(--gold-light);
+
+  font-family: 'Outfit', sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 14px;
+
+}
+
+
+.vision-item p {
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+}
+
+
+/* =========================================
+   MISI LIST
+========================================= */
+
+.mission-list {
+
+  list-style: none;
+
+  counter-reset: mission;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+.mission-list li {
+
+  counter-increment: mission;
+
+  position: relative;
+
+  padding-left: 42px;
+
+  margin-bottom: 17px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+}
+
+
+.mission-list li::before {
+
+  content: counter(mission, decimal-leading-zero);
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  color: var(--gold);
+
+  font-family: 'Outfit', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+}
+
+
+.mission-list strong {
+
+  color: var(--white);
+
+  font-weight: 600;
+
+}
+
+
+/* =========================================
+   TAGLINE
+========================================= */
+
+.about-tag {
+
+  display: inline-block;
+
+  color: var(--gold-light);
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  border-left: 2px solid var(--gold);
+
+  padding-left: 12px;
+
+  margin-top: 35px;
+
+}
