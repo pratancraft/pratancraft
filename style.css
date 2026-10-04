@@ -1497,3 +1497,56 @@ footer {
   }
 
 }
+/* =========================================================
+   PORTFOLIO - PRATAN CRAFT
+   ========================================================= */
+
+.portfolio {
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(217,183,121,.025),
+      transparent
+    );
+}
+
+.portfolio .section-heading {
+  margin-bottom: 42px;
+}
+
+.portfolio .section-heading h2 span {
+  color: var(--gold);
+}
+
+.portfolio-card {
+  cursor: default;
+}
+
+.portfolio-card:hover .portfolio-image span {
+  transform: scale(1.08);
+}
+
+.portfolio-image span {
+  transition: .35s ease;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .portfolio-info {
+    padding: 20px;
+  }
+
+  .portfolio-info h3 {
+    font-size: 19px;
+  }
+
+}
