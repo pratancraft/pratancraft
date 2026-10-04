@@ -1550,3 +1550,27 @@ footer {
   }
 
 }
+/* =========================================================
+   FOTO PORTFOLIO
+   ========================================================= */
+
+.portfolio-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  background: #15171b;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+/* Efek zoom saat mouse diarahkan */
+.portfolio-card:hover .portfolio-image img {
+  transform: scale(1.05);
+}
