@@ -1305,26 +1305,55 @@ footer {
     padding-inline: 18px;
   }
 }
-/* Judul Visi & Misi di tengah */
-.vision-title {
-  justify-content: center;
+/* =========================================================
+   FIX POSISI JUDUL VISI & MISI
+   ========================================================= */
+
+/* Kolom Visi dan Misi */
+.vision-box,
+.mission-box {
+  text-align: center !important;
 }
 
-/* Label di tengah */
+/* Judul Visi & Misi */
+.vision-box .vision-title,
+.mission-box .vision-title {
+  width: 100% !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  text-align: center !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Tulisan VISI dan MISI */
+.vision-box .vision-title h2,
+.mission-box .vision-title h2 {
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* Nomor 01 dan 02 */
+.vision-box .title-number,
+.mission-box .title-number {
+  margin: 0 !important;
+}
+
+/* Label WHO WE ARE */
 .vision-box .section-label {
-  text-align: center;
+  text-align: center !important;
 }
 
-/* Judul */
-.vision-title h2 {
-  text-align: center;
+/* Isi visi */
+.vision-box > p {
+  text-align: center !important;
 }
 
-/* Isi tetap rapi */
-.vision-box p {
-  text-align: left;
-}
-
-.mission-list {
-  text-align: left;
+/* Daftar misi tetap rapi */
+.mission-box .mission-list {
+  text-align: left !important;
 }
