@@ -1418,3 +1418,82 @@ footer {
   }
 
 }
+/* =========================================================
+   POSISI LOGO SOSIAL MEDIA DI TENGAH - MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .social-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    /* Logo dan isi berada di tengah */
+    align-items: center;
+
+    /* Jangan pakai space-between */
+    justify-content: flex-start;
+
+    min-height: 355px;
+
+    padding: 28px;
+  }
+
+  /* LOGO INSTAGRAM / TIKTOK / FACEBOOK */
+  .social-icon {
+    width: 74px;
+    height: 74px;
+
+    display: grid;
+    place-items: center;
+
+    margin-top: 95px;
+
+    flex-shrink: 0;
+
+    border-radius: 20px;
+
+    font-size: 36px;
+  }
+
+  /* JARAK LOGO KE TULISAN */
+  .social-content {
+    margin-top: 28px;
+
+    text-align: center;
+  }
+
+  /* FOLLOW US ON */
+  .social-content small {
+    display: block;
+    text-align: center;
+  }
+
+  /* INSTAGRAM / TIKTOK / FACEBOOK */
+  .social-content h2 {
+    margin-top: 6px;
+
+    text-align: center;
+
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  /* PRATAN CRAFT */
+  .social-content h3 {
+    margin-top: 8px;
+
+    text-align: center;
+  }
+
+  /* PANAH TETAP DI KANAN ATAS */
+  .social-arrow {
+    position: absolute;
+
+    top: 27px;
+    right: 28px;
+  }
+
+}
