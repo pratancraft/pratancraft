@@ -1184,8 +1184,8 @@ footer {
 }
 
 /* MOBILE */
-
 @media (max-width: 760px) {
+
   .container {
     width: calc(100% - 32px);
   }
@@ -1225,7 +1225,25 @@ footer {
     font-size: 10px;
   }
 
-  /* MOBILE: image first, text second */
+
+  /* =================================
+     SOCIAL MEDIA — MOBILE
+     ================================= */
+
+  .social-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 55px;
+  }
+
+  .social-card {
+    min-height: 355px;
+    padding: 28px;
+  }
+
+
+  /* MOBILE ABOUT */
+
   .about {
     display: flex;
     flex-direction: column;
@@ -1259,6 +1277,7 @@ footer {
   .about-text h2 {
     font-size: 30px;
   }
+}
 
   .about-text p,
   .mission-list {
