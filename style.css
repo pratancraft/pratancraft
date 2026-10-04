@@ -1305,3 +1305,26 @@ footer {
     padding-inline: 18px;
   }
 }
+/* Judul Visi & Misi di tengah */
+.vision-title {
+  justify-content: center;
+}
+
+/* Label di tengah */
+.vision-box .section-label {
+  text-align: center;
+}
+
+/* Judul */
+.vision-title h2 {
+  text-align: center;
+}
+
+/* Isi tetap rapi */
+.vision-box p {
+  text-align: left;
+}
+
+.mission-list {
+  text-align: left;
+}
