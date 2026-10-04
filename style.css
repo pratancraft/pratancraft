@@ -1357,3 +1357,178 @@ footer {
 .mission-box .mission-list {
   text-align: left !important;
 }
+/* =========================================================
+   FIX SOCIAL MEDIA — MOBILE / HP
+   Instagram, TikTok, Facebook lebih jelas
+   ========================================================= */
+
+/* Desktop */
+.social-card {
+  min-width: 0;
+}
+
+.social-content {
+  min-width: 0;
+}
+
+.social-content h2 {
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.15;
+
+  /* Jangan sampai nama terpotong */
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .social-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .social-card {
+    padding: 22px;
+    min-height: 230px;
+  }
+
+  .social-content h2 {
+    font-size: 23px;
+  }
+
+  .social-content small {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+}
+
+
+/* =========================================================
+   HP
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .social-section {
+    width: calc(100% - 28px);
+  }
+
+  /*
+     Satu kartu per baris.
+     Ini yang membuat tulisan Instagram,
+     TikTok dan Facebook benar-benar jelas.
+  */
+  .social-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 55px;
+  }
+
+  .social-card {
+    width: 100%;
+    min-height: 205px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+  }
+
+  /* ICON */
+  .social-icon {
+    width: 54px;
+    height: 54px;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+  }
+
+  /* TEKS */
+  .social-content {
+    margin-top: 20px;
+  }
+
+  .social-content small {
+    display: block;
+
+    color: #9b9da3;
+
+    font-size: 9px;
+    letter-spacing: 2.5px;
+
+    margin-bottom: 6px;
+  }
+
+  .social-content h2 {
+    color: #ffffff;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 27px;
+    font-weight: 600;
+
+    line-height: 1.15;
+
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  /* PANAH */
+  .social-arrow {
+    top: 22px;
+    right: 22px;
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   HP KECIL
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .social-section {
+    width: calc(100% - 24px);
+  }
+
+  .social-grid {
+    gap: 14px;
+  }
+
+  .social-card {
+    min-height: 195px;
+    padding: 20px;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+  }
+
+  .social-content h2 {
+    font-size: 25px;
+  }
+
+  .social-content small {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+}
