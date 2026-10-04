@@ -1,1311 +1,1307 @@
 /* =========================================================
-   PRATAN CRAFT
-   FULL REPLACEMENT CSS
-   HTML TIDAK PERLU DIUBAH
+   PRATAN CRAFT — FINAL CLEAN CSS
+   Target layout:
+   navbar full width
+   large PRATAN image on the left
+   Visi/Misi panel on the right
+   responsive on tablet/mobile
    ========================================================= */
 
 :root {
-    --bg: #080a0d;
-    --surface: #111419;
-    --gold: #d9b779;
-    --gold-light: #f5deb0;
-    --white: #f7f6f2;
-    --muted: #a1a3a8;
-    --line: rgba(217,183,121,.22);
+  --bg: #080a0d;
+  --surface: #111419;
+  --gold: #d9b779;
+  --gold-light: #f5deb0;
+  --white: #f7f6f2;
+  --muted: #a1a3a8;
+  --line: rgba(217,183,121,.22);
 }
 
-/* =========================================================
-   RESET
-   ========================================================= */
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-
-    background: var(--bg);
-    color: var(--white);
-
-    font-family: 'DM Sans', sans-serif;
-
-    overflow-x: hidden;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-    font: inherit;
+  font: inherit;
 }
 
 .container {
-    width: min(1160px, calc(100% - 40px));
-    margin: 0 auto;
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
 }
 
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
+/* BACKGROUND */
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    z-index: -2;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 15%,
-            rgba(180,133,65,.12),
-            transparent 45%
-        ),
-        radial-gradient(
-            ellipse at 90% 75%,
-            rgba(180,133,65,.07),
-            transparent 35%
-        );
-
-    pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(180,133,65,.12), transparent 45%),
+    radial-gradient(ellipse at 90% 75%, rgba(180,133,65,.07), transparent 35%);
 }
 
 .noise {
-    position: fixed;
-    inset: 0;
-
-    z-index: -1;
-
-    opacity: .10;
-
-    pointer-events: none;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .10;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
 }
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
+/* NAVBAR */
 
 .navbar {
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-
-    width: 100%;
-
-    background: rgba(8,10,13,.94);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255,255,255,.07);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(8,10,13,.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
 .nav-inner {
-    min-height: 76px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 25px;
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-
-    gap: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
-    width: 43px;
-    height: 43px;
-
-    display: grid;
-    place-items: center;
-
-    border: 1px solid var(--gold);
-    border-radius: 9px;
-
-    color: var(--gold);
-
-    font-family: 'Outfit', sans-serif;
-    font-size: 25px;
-    font-weight: 700;
-
-    transform: rotate(-45deg);
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 9px;
+  color: var(--gold);
+  font-family: "Outfit", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  transform: rotate(-45deg);
 }
 
 .brand-mark span {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .brand-name {
-    font-family: 'Outfit', sans-serif;
-
-    font-size: 18px;
-    font-weight: 700;
-
-    letter-spacing: 3px;
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 1;
 }
 
 .brand-name small {
-    display: block;
-
-    margin-top: 1px;
-
-    color: var(--gold);
-
-    font-size: 9px;
-    font-weight: 400;
-
-    letter-spacing: 5px;
+  display: block;
+  margin-top: 4px;
+  color: var(--gold);
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 5px;
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-
-    gap: 28px;
-
-    list-style: none;
-
-    color: #c2c2c2;
-
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  color: #c2c2c2;
+  font-size: 13px;
 }
 
 .nav-links a {
-    transition: .3s ease;
+  transition: color .25s ease;
 }
 
 .nav-links a:hover {
-    color: var(--gold);
+  color: var(--gold);
 }
 
 .nav-contact {
-    padding: 11px 18px;
-
-    border: 1px solid var(--line);
-    border-radius: 30px;
-
-    color: var(--gold-light);
-
-    font-size: 12px;
-
-    transition: .3s ease;
+  flex-shrink: 0;
+  padding: 10px 17px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  color: var(--gold-light);
+  font-size: 12px;
+  transition: .25s ease;
 }
 
 .nav-contact:hover {
-    background: var(--gold);
-    color: #111;
+  background: var(--gold);
+  color: #111;
 }
 
 /* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-    min-height: 620px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 100px 0 95px;
-
-    text-align: center;
-}
-
-.hero-content {
-    width: 100%;
-    max-width: 850px;
-
-    margin: auto;
-}
-
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 9px 17px;
-
-    border: 1px solid var(--line);
-    border-radius: 50px;
-
-    color: var(--gold-light);
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    margin-bottom: 28px;
-
-    background: rgba(217,183,121,.04);
-}
-
-.eyebrow::before {
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: var(--gold);
-
-    box-shadow: 0 0 12px var(--gold);
-}
-
-.hero h1 {
-    font-family: 'Outfit', sans-serif;
-
-    font-size: clamp(54px, 10vw, 112px);
-
-    line-height: .95;
-
-    letter-spacing: 5px;
-
-    font-weight: 800;
-
-    background:
-        linear-gradient(
-            110deg,
-            #fff 15%,
-            #e9d2a5 55%,
-            #b98c4e 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.hero-subtitle {
-    margin-top: 18px;
-
-    color: var(--gold);
-
-    font-size: clamp(14px, 2vw, 19px);
-
-    letter-spacing: 11px;
-
-    font-weight: 500;
-}
-
-.hero-line {
-    width: 100px;
-    height: 1px;
-
-    margin: 29px auto;
-
-    background: var(--gold);
-
-    box-shadow: 0 0 15px var(--gold);
-}
-
-.hero-description {
-    max-width: 580px;
-
-    margin: auto;
-
-    color: var(--muted);
-
-    font-size: 15px;
-
-    line-height: 1.9;
-}
-
-.hero-buttons {
-    display: flex;
-
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 13px;
-
-    margin-top: 34px;
-}
-
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    padding: 14px 25px;
-
-    border-radius: 50px;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: .3s ease;
-}
-
-.btn-gold {
-    color: #17120a;
-
-    background:
-        linear-gradient(
-            120deg,
-            #f2dba9,
-            #c49b5b
-        );
-
-    box-shadow:
-        0 5px 25px rgba(217,183,121,.12);
-}
-
-.btn-gold:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 30px rgba(217,183,121,.3);
-}
-
-.btn-outline {
-    color: var(--white);
-
-    border: 1px solid rgba(255,255,255,.2);
-}
-
-.btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-}
-
-/* =========================================================
-   SOCIAL
-   ========================================================= */
-
-.social-section {
-    padding: 26px 0 35px;
-
-    border-top: 1px solid rgba(255,255,255,.07);
-    border-bottom: 1px solid rgba(255,255,255,.07);
-
-    background: rgba(255,255,255,.012);
-
-    text-align: center;
-}
-
-.social-title {
-    margin-bottom: 20px;
-
-    color: #8f9298;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-.social-list {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-}
-
-.social-link {
-    min-width: 120px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 12px 17px;
-
-    border: 1px solid rgba(255,255,255,.11);
-
-    border-radius: 40px;
-
-    color: #dedede;
-
-    font-size: 12px;
-
-    transition: .3s ease;
-}
-
-.social-link svg {
-    width: 17px;
-    height: 17px;
-}
-
-.social-link:hover {
-    border-color: var(--gold);
-
-    color: var(--gold);
-
-    background: rgba(217,183,121,.06);
-
-    transform: translateY(-3px);
-}
-
-/* =========================================================
-   GENERAL SECTION
-   ========================================================= */
-
-.section {
-    padding: 100px 0;
-}
-
-.section-heading {
-    margin-bottom: 48px;
-
-    text-align: center;
-}
-
-.section-label {
-    margin-bottom: 15px;
-
-    color: var(--gold);
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-}
-
-.section-heading h2 {
-    font-family: 'Outfit', sans-serif;
-
-    font-size: clamp(30px, 5vw, 48px);
-
-    font-weight: 600;
-}
-
-.section-heading p {
-    max-width: 560px;
-
-    margin: 14px auto 0;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-/* =========================================================
-   ABOUT
-   =========================================================
-   
-   INI YANG KITA PERBAIKI.
-
-   DESKTOP:
-
-   ┌─────────────────────────┬──────────────────────┐
-   │                         │                      │
-   │       LOGO PRATAN       │     WHO WE ARE       │
-   │                         │     Visi dan Misi    │
-   │                         │                      │
-   │                         │     Visi             │
-   │                         │     ...              │
-   │                         │                      │
-   │                         │     Misi             │
-   │                         │     ...              │
-   └─────────────────────────┴──────────────────────┘
-
-   TIDAK ADA LAGI:
-   gambar di atas -> teks di bawah
+   SOCIAL MEDIA + VISI MISI
+   PRATAN CRAFT
    ========================================================= */
 
 .about {
-    width: 100% !important;
+  position: relative;
+  width: 100%;
+  padding: 110px 0 90px;
+  overflow: hidden;
 
-    display: grid !important;
-
-    /*
-       58% gambar
-       42% teks
-    */
-    grid-template-columns: 58% 42% !important;
-
-    grid-template-rows: auto !important;
-
-    gap: 0 !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    align-items: stretch !important;
-
-    overflow: hidden;
-
-    background: #080a0d;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(217,183,121,.12),
+      transparent 35%
+    ),
+    #080a0d;
 }
+
 
 /* =========================================================
-   GAMBAR PRATAN
+   BACKGROUND GLOW / API
    ========================================================= */
 
-.about > img {
-    display: block !important;
+.about::before {
+  content: "";
+  position: absolute;
 
-    width: 100% !important;
+  width: 700px;
+  height: 700px;
 
-    /*
-       Tinggi mengikuti area section.
-       Tidak dipaksa menjadi gambar portrait.
-    */
-    height: 700px !important;
+  left: 50%;
+  top: 0;
 
-    min-width: 0 !important;
-    min-height: 0 !important;
+  transform: translateX(-50%);
 
-    max-width: none !important;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,82,32,.08),
+      rgba(217,183,121,.04) 35%,
+      transparent 70%
+    );
 
-    object-fit: contain !important;
+  filter: blur(35px);
 
-    object-position: center !important;
+  pointer-events: none;
 
-    background: #f0f1f2;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    border: 0 !important;
-    border-radius: 0 !important;
+  animation: fireAtmosphere 6s ease-in-out infinite alternate;
 }
+
+
+@keyframes fireAtmosphere {
+
+  0% {
+    transform: translateX(-50%) scale(.9);
+    opacity: .55;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 1;
+  }
+
+}
+
 
 /* =========================================================
-   ABOUT TEXT
+   SOCIAL HEADER
    ========================================================= */
 
-.about > .about-text {
-    width: 100% !important;
+.social-section {
+  position: relative;
+  z-index: 2;
 
-    min-width: 0 !important;
-
-    height: 700px;
-
-    overflow-y: auto;
-
-    padding: 65px 55px !important;
-
-    display: block;
-
-    align-self: stretch !important;
-
-    text-align: left !important;
-
-    background:
-        radial-gradient(
-            ellipse at 20% 20%,
-            rgba(217,183,121,.06),
-            transparent 55%
-        ),
-        #080a0d;
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
 }
 
-/* Label */
 
-.about-text .section-label {
-    text-align: left !important;
+.social-header {
+  max-width: 700px;
+  margin: 0 auto 55px;
 
-    margin-bottom: 14px;
+  text-align: center;
 }
+
+
+.social-header .section-label {
+  margin-bottom: 14px;
+
+  color: var(--gold);
+
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+
+.social-header h1 {
+  margin-bottom: 17px;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: clamp(38px, 6vw, 68px);
+
+  line-height: 1.05;
+
+  font-weight: 600;
+}
+
+
+.social-header h1 span {
+  display: block;
+
+  color: var(--gold);
+
+  background:
+    linear-gradient(
+      120deg,
+      #fff,
+      #d9b779,
+      #ffb347
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+
+.social-header p {
+  max-width: 580px;
+
+  margin: auto;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
 
 /* =========================================================
-   JUDUL VISI MISI PRATAN
+   SOCIAL GRID
    ========================================================= */
 
-.about-text > h2:first-of-type {
-    font-family: 'Outfit', sans-serif;
+.social-grid {
+  display: grid;
 
-    font-size: clamp(30px, 3vw, 43px);
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
-    line-height: 1.15;
+  gap: 20px;
 
-    margin: 0 0 30px 0;
-
-    color: var(--white);
+  margin-bottom: 80px;
 }
 
-.about-text > h2:first-of-type span {
-    color: var(--gold);
-}
 
 /* =========================================================
-   JUDUL "VISI" DAN "MISI"
+   SOCIAL CARD
    ========================================================= */
 
-.about-text h2:not(:first-of-type) {
-    margin-top: 24px;
+.social-card {
+  position: relative;
 
-    margin-bottom: 12px;
+  min-height: 245px;
 
-    font-family: 'Outfit', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    font-size: 26px;
+  padding: 28px;
 
-    line-height: 1.2;
+  overflow: hidden;
 
-    color: var(--white);
+  border: 1px solid rgba(255,255,255,.10);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.015)
+    );
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    box-shadow .4s ease;
 }
+
 
 /* =========================================================
-   PARAGRAPH VISI MISI
+   FIRE GLOW
    ========================================================= */
 
-.about-text p {
-    margin: 0 0 13px 0;
+.social-card::before {
+  content: "";
 
-    color: var(--muted);
+  position: absolute;
 
-    font-size: 13px;
+  width: 180px;
+  height: 180px;
 
-    line-height: 1.75;
+  right: -70px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,90,30,.65),
+      rgba(255,45,0,.25) 35%,
+      transparent 70%
+    );
+
+  filter: blur(18px);
+
+  opacity: .55;
+
+  transition:
+    transform .5s ease,
+    opacity .5s ease;
 }
+
+
+.social-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 25%,
+      rgba(255,255,255,.07),
+      transparent 55%
+    );
+
+  transform: translateX(-120%);
+
+  transition: transform .7s ease;
+
+  pointer-events: none;
+}
+
+
+.social-card:hover {
+  transform: translateY(-10px) scale(1.015);
+
+  border-color: rgba(255,154,72,.55);
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.45),
+    0 0 35px rgba(255,75,20,.13);
+}
+
+
+.social-card:hover::before {
+  transform: scale(1.8);
+
+  opacity: 1;
+}
+
+
+.social-card:hover::after {
+  transform: translateX(120%);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+.social-card.instagram {
+  background:
+    radial-gradient(
+      circle at 85% 90%,
+      rgba(255,60,120,.15),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      #161116,
+      #0c0d11
+    );
+}
+
+
+/* =========================================================
+   TIKTOK
+   ========================================================= */
+
+.social-card.tiktok {
+  background:
+    radial-gradient(
+      circle at 85% 90%,
+      rgba(0,242,234,.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #101417,
+      #090b0f
+    );
+}
+
+
+/* =========================================================
+   FACEBOOK
+   ========================================================= */
+
+.social-card.facebook {
+  background:
+    radial-gradient(
+      circle at 85% 90%,
+      rgba(45,130,255,.16),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #10141b,
+      #090b0f
+    );
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+   ========================================================= */
+
+.social-icon {
+  position: relative;
+  z-index: 3;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.045);
+
+  font-size: 27px;
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+}
+
+
+.social-card:hover .social-icon {
+  transform: rotate(-5deg) scale(1.08);
+
+  box-shadow:
+    0 0 25px rgba(255,120,40,.25);
+}
+
+
+/* Instagram icon */
+
+.instagram .social-icon {
+  color: #ff5c8a;
+}
+
+
+/* TikTok icon */
+
+.tiktok .social-icon {
+  color: #ffffff;
+
+  text-shadow:
+    -2px 0 #25f4ee,
+    2px 0 #fe2c55;
+}
+
+
+/* Facebook icon */
+
+.facebook .social-icon {
+  color: #4d9cff;
+}
+
+
+/* =========================================================
+   SOCIAL CONTENT
+   ========================================================= */
+
+.social-content {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top: 25px;
+}
+
+
+.social-content small {
+  color: #777c84;
+
+  font-size: 9px;
+
+  letter-spacing: 2.5px;
+}
+
+
+.social-content h2 {
+  margin: 5px 0;
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 27px;
+
+  font-weight: 600;
+}
+
+
+.social-content p {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.social-arrow {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 27px;
+  right: 28px;
+
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 50%;
+
+  color: #aaa;
+
+  font-size: 15px;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    color .3s ease;
+}
+
+
+.social-card:hover .social-arrow {
+  transform: translate(3px,-3px);
+
+  color: #111;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   FIRE PARTICLES
+   ========================================================= */
+
+.social-fire {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  right: 30%;
+  bottom: 20%;
+
+  border-radius: 50%;
+
+  background: #ff7b35;
+
+  box-shadow:
+    25px -25px 0 rgba(255,115,40,.7),
+    55px -8px 0 rgba(255,181,71,.5),
+    12px -55px 0 rgba(255,65,20,.6),
+    75px -42px 0 rgba(255,210,120,.35);
+
+  opacity: .45;
+
+  animation: fireParticles 3s ease-in-out infinite;
+}
+
+
+@keyframes fireParticles {
+
+  0% {
+    transform:
+      translateY(20px)
+      scale(.6);
+
+    opacity: 0;
+  }
+
+  30% {
+    opacity: .7;
+  }
+
+  70% {
+    opacity: .45;
+  }
+
+  100% {
+    transform:
+      translateY(-45px)
+      scale(1.2);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   VISI MISI
+   ========================================================= */
+
+.vision-mission {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, .8fr)
+    minmax(0, 1.2fr);
+
+  gap: 45px;
+
+  padding: 55px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(217,183,121,.17);
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(217,183,121,.09),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #111419,
+      #0a0c0f
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.25);
+}
+
+
+/* garis cahaya */
+
+.vision-mission::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+  opacity: .6;
+}
+
+
+/* =========================================================
+   VISI
+   ========================================================= */
+
+.vision-box {
+  position: relative;
+
+  padding-right: 25px;
+
+  border-right:
+    1px solid rgba(255,255,255,.08);
+}
+
+
+.vision-box .section-label {
+  margin-bottom: 22px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+.vision-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+
+.title-number {
+  color: var(--gold);
+
+  font-family: "Outfit", sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+}
+
+
+.vision-title h2 {
+  font-family: "Outfit", sans-serif;
+
+  font-size: clamp(32px, 4vw, 48px);
+
+  font-weight: 600;
+}
+
+
+.vision-box p {
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   MISI
+   ========================================================= */
+
+.mission-box {
+  position: relative;
+}
+
+
+.mission-box .vision-title {
+  margin-bottom: 24px;
+}
+
+
+.mission-list {
+  margin: 0;
+
+  padding-left: 20px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+.mission-list li {
+  padding-left: 7px;
+
+  margin-bottom: 15px;
+}
+
+
+.mission-list li::marker {
+  color: var(--gold);
+}
+
 
 /* =========================================================
    ABOUT TAG
    ========================================================= */
 
 .about-tag {
-    display: inline-block;
+  display: block;
 
-    margin-top: 18px;
+  width: fit-content;
 
-    padding-left: 12px;
+  margin: 35px auto 0;
 
-    border-left: 2px solid var(--gold);
+  padding: 10px 18px;
 
-    color: var(--gold-light);
+  border:
+    1px solid rgba(217,183,121,.20);
 
-    font-size: 10px;
+  border-radius: 50px;
 
-    letter-spacing: 2px;
+  color: var(--gold-light);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  background: rgba(217,183,121,.025);
 }
 
-/* =========================================================
-   SERVICES
-   ========================================================= */
+
+.about-tag span {
+  color: #ff7a35;
+
+  margin: 0 5px;
+}
+/* SECTIONS AFTER THE REFERENCE AREA */
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.section-label {
+  margin-bottom: 15px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 600;
+}
+
+.section-heading p {
+  max-width: 560px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* SERVICES */
 
 .services {
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(255,255,255,.018),
-            transparent
-        );
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.018), transparent);
 }
 
 .service-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 17px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
 }
 
 .service-card {
-    min-height: 220px;
-
-    padding: 28px 22px;
-
-    border: 1px solid rgba(255,255,255,.09);
-
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #14171b,
-            #0c0e11
-        );
-
-    transition: .35s ease;
+  min-height: 220px;
+  padding: 28px 22px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #14171b, #0c0e11);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-7px);
-
-    border-color: var(--gold);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.3);
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0,0,0,.3);
 }
 
 .service-icon {
-    width: 46px;
-    height: 46px;
-
-    display: grid;
-    place-items: center;
-
-    margin-bottom: 24px;
-
-    border: 1px solid var(--line);
-
-    border-radius: 12px;
-
-    color: var(--gold);
-
-    font-size: 22px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--gold);
+  font-size: 22px;
 }
 
 .service-card h3 {
-    margin-bottom: 10px;
-
-    font-family: 'Outfit', sans-serif;
-
-    font-size: 17px;
+  margin-bottom: 10px;
+  font-family: "Outfit", sans-serif;
+  font-size: 17px;
 }
 
 .service-card p {
-    color: var(--muted);
-
-    font-size: 12px;
-
-    line-height: 1.8;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
 }
 
-/* =========================================================
-   PORTFOLIO
-   ========================================================= */
+/* PORTFOLIO */
 
 .portfolio-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .portfolio-card {
-    overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    border-radius: 14px;
-
-    background: var(--surface);
-
-    transition: .3s ease;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  background: var(--surface);
+  transition: transform .3s ease, border-color .3s ease;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px);
-
-    border-color: var(--line);
+  transform: translateY(-5px);
+  border-color: var(--line);
 }
 
 .portfolio-image {
-    aspect-ratio: 16 / 10;
-
-    display: grid;
-
-    place-items: center;
-
-    overflow: hidden;
-
-    background: #15171b;
-
-    border-bottom: 1px solid rgba(255,255,255,.07);
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(217,183,121,.15), transparent 60%),
+    #15171b;
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
-.portfolio-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
+.portfolio-image span {
+  color: var(--gold);
+  font-family: "Outfit", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .portfolio-info {
-    padding: 19px;
+  padding: 19px;
 }
 
 .portfolio-info small {
-    color: var(--gold);
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .portfolio-info h3 {
-    margin: 7px 0;
-
-    font-family: 'Outfit', sans-serif;
-
-    font-size: 18px;
+  margin: 7px 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
 }
 
 .portfolio-info p {
-    color: var(--muted);
-
-    font-size: 12px;
+  color: var(--muted);
+  font-size: 12px;
 }
 
-/* =========================================================
-   CONTACT
-   ========================================================= */
+/* CONTACT */
+
+.contact-wrap {
+  padding-bottom: 0;
+}
 
 .contact {
-    padding: 75px 25px;
-
-    text-align: center;
-
-    border: 1px solid var(--line);
-
-    border-radius: 20px;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 120%,
-            rgba(217,183,121,.12),
-            transparent 65%
-        ),
-        #101216;
+  padding: 75px 25px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(217,183,121,.12), transparent 65%),
+    #101216;
 }
 
 .contact h2 {
-    margin-bottom: 14px;
-
-    font-family: 'Outfit', sans-serif;
-
-    font-size: clamp(29px, 5vw, 46px);
+  margin-bottom: 14px;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(29px, 5vw, 46px);
 }
 
 .contact h2 span {
-    color: var(--gold);
+  color: var(--gold);
 }
 
 .contact p {
-    max-width: 520px;
-
-    margin: auto;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    line-height: 1.9;
+  max-width: 520px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
 }
 
-.contact .btn {
-    margin-top: 28px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 14px 25px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+.btn-gold {
+  color: #17120a;
+  background: linear-gradient(120deg, #f2dba9, #c49b5b);
+  box-shadow: 0 5px 25px rgba(217,183,121,.12);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(217,183,121,.3);
+}
+
+/* FOOTER */
 
 footer {
-    margin-top: 75px;
-
-    padding: 28px 0;
-
-    border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 75px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
 .footer-inner {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .footer-brand {
-    color: var(--gold);
-
-    font-family: 'Outfit', sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    letter-spacing: 3px;
+  color: var(--gold);
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
 }
 
 .footer-copy {
-    color: #777b81;
-
-    font-size: 11px;
+  color: #777b81;
+  font-size: 11px;
 }
 
-/* =========================================================
-   ANIMATION
-   ========================================================= */
+/* SCROLL REVEAL — ONLY FOR LOWER SECTIONS */
 
 .reveal {
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
 }
 
 .reveal.show {
-    opacity: 1;
-
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* TABLET */
 
-@media (max-width: 1000px) and (min-width: 701px) {
+@media (max-width: 1100px) {
+  .about {
+    grid-template-columns: minmax(0, 72%) minmax(300px, 28%);
+  }
 
-    .container {
-        width: calc(100% - 40px);
-    }
+  .about-text {
+    padding-inline: 25px;
+  }
 
-    .about {
-        grid-template-columns: 55% 45% !important;
-    }
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    .about > img {
-        height: 620px !important;
-    }
-
-    .about > .about-text {
-        height: 620px;
-
-        padding: 45px 30px !important;
-    }
-
-    .about-text > h2:first-of-type {
-        font-size: 32px;
-    }
-
-    .about-text h2:not(:first-of-type) {
-        font-size: 23px;
-    }
-
-    .about-text p {
-        font-size: 12px;
-        line-height: 1.65;
-    }
-
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .container {
-        width: calc(100% - 32px);
-    }
-
-    /* NAVBAR */
-
-    .nav-inner {
-        min-height: 64px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .brand {
-        gap: 8px;
-    }
-
-    .brand-mark {
-        width: 34px;
-        height: 34px;
-
-        font-size: 19px;
-
-        border-radius: 7px;
-    }
-
-    .brand-name {
-        font-size: 14px;
-
-        letter-spacing: 2px;
-    }
-
-    .brand-name small {
-        font-size: 7px;
-
-        letter-spacing: 3px;
-    }
-
-    .nav-contact {
-        padding: 8px 12px;
-
-        font-size: 10px;
-    }
-
-    /* HERO */
-
-    .hero {
-        min-height: auto;
-
-        padding: 75px 0 65px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-
-        letter-spacing: 2px;
-    }
-
-    .hero-subtitle {
-        font-size: 13px;
-
-        letter-spacing: 7px;
-    }
-
-    .hero-description {
-        padding: 0 10px;
-
-        font-size: 13px;
-
-        line-height: 1.8;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-
-        max-width: 330px;
-    }
-
-    /* SOCIAL */
-
-    .social-section {
-        padding: 25px 0;
-    }
-
-    .social-list {
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 7px;
-    }
-
-    .social-link {
-        min-width: 0;
-
-        width: 100%;
-
-        padding: 10px 5px;
-
-        font-size: 10px;
-
-        gap: 5px;
-    }
-
-    .social-link svg {
-        width: 15px;
-        height: 15px;
-    }
-
-    /* =====================================================
-       ABOUT MOBILE
-       ===================================================== */
-
-    .about {
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        width: 100% !important;
-
-        grid-template-columns: none !important;
-
-        gap: 0 !important;
-    }
-
-    .about > img {
-        width: 100% !important;
-
-        height: auto !important;
-
-        min-height: 0 !important;
-
-        max-width: none !important;
-
-        aspect-ratio: 16 / 9;
-
-        object-fit: contain !important;
-
-        background: #f0f1f2;
-    }
-
-    .about > .about-text {
-        width: 100% !important;
-
-        height: auto !important;
-
-        min-height: 0 !important;
-
-        overflow: visible !important;
-
-        padding: 45px 22px 55px !important;
-    }
-
-    .about-text > h2:first-of-type {
-        font-size: 29px;
-
-        margin-bottom: 28px;
-    }
-
-    .about-text h2:not(:first-of-type) {
-        margin-top: 28px;
-
-        font-size: 25px;
-    }
-
-    .about-text p {
-        font-size: 13px;
-
-        line-height: 1.8;
-    }
-
-    /* SERVICES */
-
-    .section {
-        padding: 65px 0;
-    }
-
-    .service-grid {
-        grid-template-columns: 1fr;
-
-        gap: 13px;
-    }
-
-    /* PORTFOLIO */
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-        padding: 50px 20px;
-    }
-
-    /* FOOTER */
-
-    .footer-inner {
-        justify-content: center;
-
-        text-align: center;
-    }
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .nav-inner {
+    min-height: 64px;
+    gap: 12px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+    border-radius: 7px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .brand-name small {
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+
+  .nav-contact {
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+
+  /* MOBILE: image first, text second */
+  .about {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .about-image {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+  }
+
+  .about-text {
+    min-height: auto;
+    padding: 42px 22px 55px;
+    overflow: visible;
+  }
+
+  .about-text h1 {
+    font-size: 34px;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-text p,
+  .mission-list {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .mission-list li {
+    margin-bottom: 14px;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .service-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 50px 20px;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
-/* =========================================================
-   HP KECIL
-   ========================================================= */
+/* VERY SMALL PHONES */
 
 @media (max-width: 400px) {
+  .container {
+    width: calc(100% - 28px);
+  }
 
-    .container {
-        width: calc(100% - 28px);
-    }
+  .nav-contact {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
 
-    .brand-name {
-        font-size: 13px;
-    }
-
-    .nav-contact {
-        padding: 7px 10px;
-
-        font-size: 9px;
-    }
-
-    .hero h1 {
-        font-size: 45px;
-    }
-
-    .hero-subtitle {
-        font-size: 11px;
-
-        letter-spacing: 6px;
-    }
-
-    .social-link {
-        font-size: 9px;
-
-        padding: 9px 3px;
-    }
-
-    .about-text {
-        padding: 40px 18px 50px !important;
-    }
-
-    .about-text > h2:first-of-type {
-        font-size: 26px;
-    }
-
-    .about-text h2:not(:first-of-type) {
-        font-size: 23px;
-    }
-
-    .about-text p {
-        font-size: 12px;
-    }
+  .about-text {
+    padding-inline: 18px;
+  }
 }
